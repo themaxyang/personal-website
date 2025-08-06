@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Yang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            min-height: 100vh;
+            padding: 1rem 1rem 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 600px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 1.5rem;
+        }
+        
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 1.8rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+        
+        .section {
+            margin-bottom: 1.2rem;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #475569;
+        }
+        
+        .projects-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-item {
+            padding: 1.2rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+        
+        .project-description {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .project-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+        
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .interest-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+        
+        .social-link:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+        
+        .contact-info strong {
+            color: #1e293b;
+        }
+        
+
+        
+        /* Bold text styling */
+        strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            
+            .header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="profile.jpg" alt="Max Yang" class="profile-photo">
+            <h1 class="name">Hey! I'm Max Yang 👋</h1>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-content">
+                    <p><strong>hey, i'm max.</strong> i'm 19 and a student at <a href="https://illinois.edu" target="_blank" style="color:#3b82f6; text-decoration:none;">UIUC</a> studying business (marketing + finance).</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <p>i grew up a creative kid with a wild imagination, sketching basketball sneaker designs and building cities with legos.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <p>those early habits stuck, and now i'm <strong>vibecoding with AI tools</strong> like Cursor and building projects outside (and sometimes during) class.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <p>i recently <strong>launched <a href="https://colddmblueprint.com" target="_blank" style="color:#3b82f6; text-decoration:none;">ColdDM Blueprint</a></strong>, a resource to help people send better cold emails + DMs. it's the first project i've fully built and shipped, and i'm continuing to improve it.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <p>when i'm not studying or working on projects, you'll find me at the gym, running, or catching late-night hoop sessions with friends.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-content">
+                    <p>if you're building something cool, learning new things, or just want to chat, <strong>feel free to reach out!</strong></p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/themaxyang" target="_blank" class="social-link">
+                    <span>💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://x.com/themaxyang" target="_blank" class="social-link">
+                    <span>🐦</span>
+                    <span>X (Twitter)</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mxyangg/" target="_blank" class="social-link">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <strong>maxyang2@illinois.edu</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
